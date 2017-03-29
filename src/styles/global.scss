@@ -1,0 +1,198 @@
+// colors
+$white: #ffffff;
+$black : #000000;
+$silver: #f2f6f4;
+$grey-black: #333333;
+$grey-light-black: #3f3f3f;
+$grey-dark: #4a4a4a;
+$grey-light: #e9ecec;
+$grey-text: #a5a5a5;
+$grey-border: #c6c6c6;
+$grey-seperator: #e6e6e6;
+$grey-background: #f2f2f2;
+$grey-disabled: $grey-text;
+$green-dark: #016230;
+$green-light: #7bb296;
+$red-light: #b30838;
+$red-dark: #9e1b32;
+$red-error: $red-dark;
+
+$order-red: $red-light;
+$order-amber: #ff7e00;
+$order-green: $green-light;
+
+// vehicle colors
+$vh-black: $black;
+$vh-white: $white;
+$vh-brown: #b0a595;
+$vh-blue: #355ba1;
+$vh-green: $green-dark;
+$vh-red: $red-light;
+$vh-yellow: #d1c570;
+
+// breakpoints
+$x-small: 20em;
+$small: 24em;
+$medium: 48em;
+$large: 64em;
+
+// reset
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: LR-demi;
+  background-color: $silver;
+  color: $grey-black;
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+
+  > div {
+    height: 100%;
+
+    > div {
+      height: 100%;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-family: LR-demi;
+}
+
+select {
+  background-color: transparent;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+
+input[type=text]::-ms-reveal,
+input[type=text]::-ms-clear {
+  display: none;
+}
+
+::-ms-reveal,
+::-ms-clear {
+  display: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+// placeholders
+%container-element {
+  margin: 0 auto;
+}
+
+%clear-fix {
+  clear: both;
+  content: '';
+  display: block;
+}
+
+%lr-theme {
+  background: $white;
+  color: $grey-black;
+}
+
+%jr-theme {
+  background: $grey-dark;
+  color: $white;
+}
+
+%center-text {
+  text-align: center;
+}
+
+%uppercase {
+  text-transform: uppercase;
+}
+
+%no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// mixins
+@mixin truncate($width) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin container($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin borderRadius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -ms-border-radius: $radius;
+}
+
+// common css
+.page-content {
+  margin-top: 2.8em;
+}
+
+.content {
+  @extend %container-element;
+  padding: 1em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.seperator {
+  height: 0;
+  border-top: 1px solid $grey-seperator;
+}
+
+.required-msg {
+  color: $red-error;
+  height: 0.3em;
+  margin: 0;
+  padding: 0;
+  font-size: 0.8em;
+}
+
+.error-message {
+  color: $red-error;
+  text-align: center;
+}
+
+.no-data {
+  color: $grey-text;
+  padding-bottom: 1em;
+  font-family: LR-light;
+}
