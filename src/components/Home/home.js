@@ -1,21 +1,56 @@
-import React, { Component } from 'react';
-import data from '../../constants/data';
-import Card from '../cards/cards';
+import React, { Component, PropTypes } from 'react';
+import cssModules from 'react-css-modules';
+import styles from './home.css';
+import { push } from 'redux-router';
+import { connect } from 'react-redux';
+import { setDetails } from '../../actions/detailsAction';
 
+@cssModules(styles)
 class Home extends Component {
   constructor(props) {
     super(props);
+
+  }
+
+  cardClick(card) {
+    const { dispatch } = this.props;
+    dispatch(setDetails(card));
+    dispatch(push('/details'));
   }
 
   render() {
-    console.log(data);
+   const data = this.props.data;
+    const likeImage = '../../src/assets/images/like.png';
+    const dislikeImage = '../../src/assets/images/dislike.jpg';
+
     return (
-      <div>
-        <div>hello, I am react</div>
-        <Card title={"rajnikant"} />
+      <div>hello, I am react
+        <div> {
+          data.map((card) => {
+            return (
+              <div key={card.title} className="card_block" onClick={()=>this.cardClick(card)}>
+                <div className="card_title">{card.title}</div>
+                <img src={likeImage} className="like_image" />
+                <img src={dislikeImage} className="dislike_image" />
+              </div>
+            );
+          })
+        }
+        </div>
       </div>
     );
   }
 }
 
-export default Home;
+Home.propTypes = {
+  dispatch: PropTypes.func
+};
+
+function mapStateToProps(state) {
+  return {
+    data: state.books
+  };
+}
+
+
+export default connect(mapStateToProps)(Home);

@@ -1,0 +1,22 @@
+.card_block {
+	width: 10em;
+	height: 2em;
+	border: 0.1em solid black;
+	margin-bottom: 1em;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	padding: 0.2em;
+}
+
+.card_title {
+	color:black;
+	font-size: 15px;
+	float: left;
+}
+
+.like_image {
+	width: 2em;
+	height: 2em;
+	float: right;
+}
