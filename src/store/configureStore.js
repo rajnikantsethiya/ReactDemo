@@ -5,7 +5,7 @@ import homeReducer from '../reducers/homeReducer';
 export default function configureStore(initialState) {
   const finalCreateStore = compose(
       applyMiddleware(
-        thunk,
+        thunk
       ),
   )(createStore);
 
