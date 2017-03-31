@@ -1,6 +1,6 @@
 .card_block {
 	width: 10em;
-	height: 2em;
+	height: 3em;
 	border: 0.1em solid black;
 	margin-bottom: 1em;
 	text-align: center;
@@ -15,7 +15,17 @@
 	float: left;
 }
 
+.like_dislike_text {
+	font-size: 15px
+}
+
 .like_image {
+	width: 2em;
+	height: 2em;
+	float: right;
+}
+
+.dislike_image {
 	width: 2em;
 	height: 2em;
 	float: right;

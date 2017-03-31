@@ -17,7 +17,7 @@ module.exports = {
       template: 'src/index.html'
     })
   ],
-
+devtool: 'source-map',
   module: {
     noParse: /node_modules\/json-schema\/lib\/validate\.js/,
     preLoaders: [
