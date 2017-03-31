@@ -1,12 +1,10 @@
-const initialState = {
-  data: null
-};
+import BooksReducer from './reducer_booklist';
+import { combineReducers } from 'redux';
 
-function homeReducer(state = initialState, action) {
-  if (action) {
-    console.log('true');
-  }
-  return state;
-}
 
-export default homeReducer;
+const rootReducer = combineReducers({
+  books: BooksReducer
+});
+
+
+export default rootReducer;
