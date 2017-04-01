@@ -1,0 +1,42 @@
+.details_block {
+	width: 90%;
+	height: 100%;
+	background: #483d8b;
+	border: 0.2em solid black;
+	padding: 0.5em;
+
+}
+
+.title_text {
+	color: white;
+	font-size: 3em;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1em;
+}
+
+.detail_small_block {
+	height: 5em;
+	margin-bottom: 1em;
+}
+
+.name_text, .name_value {
+	margin-left: auto;
+	margin-right: auto;
+	display: inline;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.desc_text, .desc_value {
+	margin-left: auto;
+	margin-right: auto;
+	display: inline;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+	text-transform: capitalize;
+}

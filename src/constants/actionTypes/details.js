@@ -1,1 +1,2 @@
 export const SET_DETAILS_SUCCESS = 'SET_DETAILS_SUCCESS';
+export const LIKE_SUCCESS = 'LIKE_SUCCESS';

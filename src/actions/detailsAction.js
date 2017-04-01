@@ -2,8 +2,11 @@ import * as types from '../constants/actionTypes/details';
 import request from 'superagent';
 
 export function setDetails(res) {
-  console.log(res);
   return { type: types.SET_DETAILS_SUCCESS, res };
+}
+
+export function likeStatus(status) {
+  return { type: types.LIKE_SUCCESS, res: !status };
 }
 
 export function getDetails() {
@@ -19,5 +22,5 @@ export function getDetails() {
       const json = res.body;
       dispatch(setDetails(json));
     });
-  }
+  };
 }

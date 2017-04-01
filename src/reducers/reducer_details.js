@@ -10,9 +10,14 @@ export default function detailsReducer(state = initialState, action) {
     case types.SET_DETAILS_SUCCESS:
       data = action.res;
       return Object.assign({}, state, {
-          card: data
-        });
+        card: data
+      });
+    case types.LIKE_SUCCESS:
+      data = action.res;
+      return Object.assign({}, state, {
+        status: data
+      });
     default:
       return state;
-    }
   }
+}
