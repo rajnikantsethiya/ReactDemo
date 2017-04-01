@@ -10,9 +10,9 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // ticks: JSON.parse(localStorage.getItem('ticks') || 0),
-      status: localStorage.getItem('status') || false
-    }
+      likeStatus: ((JSON.parse(localStorage.getItem('likeStatus')) === null) || (JSON.parse(localStorage.getItem('likeStatus')) === true) ? true : false),
+      bookmarkStatus: ((JSON.parse(localStorage.getItem('bookmarkStatus')) === null) || (JSON.parse(localStorage.getItem('bookmarkStatus')) === true) ? true : false)
+    };
   }
 
   componentWillMount() {
@@ -20,45 +20,41 @@ class Home extends Component {
     dispatch(getDetails());
   }
 
-  /*componentDidMount() {
-    const self = this;
-    setInterval(() => {
-      self.setState({ ticks: (self.state.ticks + 1) });
-       localStorage.setItem('ticks', JSON.stringify(this.state.ticks));
-    localStorage.clear('ticks')
-    }, 1000);
-  }*/
-
   like(status) {
-    if (status) {
-      localStorage.setItem('status', false)
-    } else (
-        localStorage.setItem('status', true)
-      )
+    this.setState({ likeStatus: !status });
+    localStorage.setItem('likeStatus', !status);
   }
 
-  cardClick(card) {
+  bookmark(status) {
+    this.setState({ bookmarkStatus: !status });
+    localStorage.setItem('bookmarkStatus', !status);
+  }
+
+  cardClick() {
     const { dispatch } = this.props;
     dispatch(push('/details'));
   }
 
   render() {
     const { cards } = this.props;
-    const likeImage = '../../src/assets/images/like.png';
-    const dislikeImage = '../../src/assets/images/dislike.jpg';
+    const bookmark = '../../src/assets/images/star_empty.png';
+    const bookmarked = '../../src/assets/images/star_filled.png';
 
+    // localStorage.clear('likeStatus');
     return (
-      <div> {
+      <div className="main_block">
+        <h1 className="head_title">Users List</h1> {
         cards && cards.data.map((card) => {
           return (
-            <div key={card.first_name} className="card_block" onClick={()=>this.cardClick(card)}>
-              <div className="card_title">{card.first_name} {card.last_name}</div>              
-              <div className="like_dislike_text" onClick={() => this.like(this.state.status)}>{ this.state.status ? 'Like' : 'Dislike' }</div>
-              // <span>{this.state.ticks}</span>
+            <div key={card.first_name} className="card_block">
+              <div className="card_title" onClick={() => this.cardClick(this, card)}>{card.first_name} {card.last_name}</div>
+              <div className="like_dislike_text" onClick={() => this.like(this.state.likeStatus)}>{ this.state.likeStatus ? 'Like' : 'DisLike' }</div>
+              <img src={ this.state.bookmarkStatus ? bookmark : bookmarked } className="bookmark" onClick={() => this.bookmark(this.state.bookmarkStatus)} />
             </div>
           );
         })
       }
+      <p className="terms">*Click on name to see the deatils</p>
       </div>
     );
   }
@@ -74,6 +70,5 @@ function mapStateToProps(state) {
     cards: state.details.card
   };
 }
-
 
 export default connect(mapStateToProps)(Home);
