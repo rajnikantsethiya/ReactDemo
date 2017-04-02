@@ -8,7 +8,7 @@ const rootView = (
     <Route path="/" component={ Home } />
     <Route path="/Details" component={ Details } />
     <Route status={404} path="*" component={ Home } />
-    </Router>
+   </Router>
 );
 
 export default rootView;
