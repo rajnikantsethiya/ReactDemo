@@ -17,7 +17,6 @@
 }
 
 .detail_small_block {
-	height: 5em;
 	margin-bottom: 1em;
 }
 
@@ -29,9 +28,11 @@
 	font-size: 2em;
 	text-align: center;
 	text-transform: capitalize;
+	padding-left: 4em;
 }
 
-.desc_text, .desc_value {
+.desc_text {
+	float: left;
 	margin-left: auto;
 	margin-right: auto;
 	display: inline;
@@ -39,4 +40,25 @@
 	font-size: 2em;
 	text-align: center;
 	text-transform: capitalize;
+	padding-left: 4em;
+}
+
+.desc_value {
+	padding-left: 8em;
+}
+
+.like_bookmark_block {
+	float: right;
+}
+
+.like_dislike_text {
+	font-size: 1em;
+	color: white;
+	display: inline;
+	padding: 1em;
+}
+
+.bookmark {
+	float: right;
+	vertical-align: middle;
 }
