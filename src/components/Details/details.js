@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import cssModules from 'react-css-modules';
 import styles from './details.css';
 import { connect } from 'react-redux';
-import { userDetails } from '../../actions/detailsAction';
+// import { userDetails } from '../../actions/detailsAction';
 
 @cssModules(styles)
 class Details extends Component {
@@ -14,10 +14,10 @@ class Details extends Component {
     };
   }
 
-  componentWillMount() {
-    const { dispatch } = this.props;
-    dispatch(userDetails());
-  }
+  // componentWillMount() {
+  //   const { dispatch } = this.props;
+  //   dispatch(userDetails());
+  // }
 
   like(status) {
     this.setState({ likeStatus: !status });
@@ -46,11 +46,11 @@ class Details extends Component {
           (<div>
             <div className="detail_small_block">
               <div className="name_text">Name:</div>
-              <div className="name_value">{user.data.first_name} {user.data.last_name}</div>
+              <div className="name_value">{user.first_name} {user.last_name}</div>
             </div>
             <div className="detail_small_block">
               <div className="desc_text">Image:</div>
-              <img src={user.data.avatar} className="desc_value" />
+              <img src={user.avatar} className="desc_value" />
             </div>
           </div>) : ''
         }
