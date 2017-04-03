@@ -3,7 +3,7 @@ import cssModules from 'react-css-modules';
 import styles from './home.css';
 import { push } from 'redux-router';
 import { connect } from 'react-redux';
-import { getDetails } from '../../actions/detailsAction';
+import { getDetails, setUserDetails } from '../../actions/detailsAction';
 
 @cssModules(styles)
 class Home extends Component {
@@ -30,8 +30,9 @@ class Home extends Component {
     localStorage.setItem('bookmarkStatus', !status);
   }
 
-  cardClick() {
+  cardClick(card) {
     const { dispatch } = this.props;
+    dispatch(setUserDetails(card));
     dispatch(push('/details'));
   }
 
@@ -47,7 +48,7 @@ class Home extends Component {
         cards && cards.data.map((card) => {
           return (
             <div key={card.first_name} className="card_block">
-              <div className="card_title" onClick={() => this.cardClick(this, card)}>{card.first_name} {card.last_name}</div>
+              <div className="card_title" onClick={() => this.cardClick(card)}>{card.first_name} {card.last_name}</div>
               <div className="like_dislike_text" onClick={() => this.like(this.state.likeStatus)}>{ this.state.likeStatus ? 'Like' : 'DisLike' }</div>
               <img src={ this.state.bookmarkStatus ? bookmark : bookmarked } className="bookmark" onClick={() => this.bookmark(this.state.bookmarkStatus)} />
             </div>
